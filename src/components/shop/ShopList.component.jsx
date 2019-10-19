@@ -9,8 +9,8 @@ const ProductCollection = ({title, items}) => (
     {
       items
       .filter((items, id) => id<4)
-      .map( ({id, ...productListProps}) => (
-        <ProductList key={id} {...productListProps} />
+      .map( (items) => (
+        <ProductList key={items.id} item={items} />
        ))
     }
     </div>
