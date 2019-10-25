@@ -1,32 +1,22 @@
 import React from 'react';
-import ShopData from './shop.data.component';
+import { connect } from 'react-redux';
 import ShopList from '../../components/shop/ShopList.component';
 
 
-class Shop extends React.Component{
-    constructor(props){
-        super(props);
-
-        this.state = {
-            products: ShopData
-        }
+const Shop = ({ products }) => (
+    <div className="shop-page">
+    { 
+        products
+        .map(({id, ...otherShopProps}) => (
+            <ShopList key={id} {...otherShopProps} />
+        ))
+    
     }
+    </div>
+)
 
-    render(){
-        const { products } = this.state;
-        return(
-            <div className="shop-page">
-            { 
-                products
-                .map(({id, ...otherShopProps}) => (
-                    <ShopList key={id} {...otherShopProps} />
-                ))
-            
-            }
-            </div>
-        )
-    }
+const mapStateToProps = state => ({
+    products: state.shop.shopData
+});
 
-}
-
-export default Shop;
+export default connect(mapStateToProps)(Shop);

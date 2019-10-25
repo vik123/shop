@@ -10,10 +10,7 @@ import CheckoutPage from './pages/checkout/checkout.component';
 import Header from './components/header/header.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from '../src/redux/actions/userAction';
-
-const Hats = () => (
-  <div>Hats</div>
-)
+import CatProductList from './pages/catgoryProduct/catProductlist.component';
 
 class App extends React.Component {
 
@@ -50,7 +47,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path='/' component={HomePage} />
               <Route exact path='/shop' component={ShopPage} />
-              <Route exact path='/shop/hats' component={Hats} />
+              <Route exact path='/shop/hats' component={CatProductList} />
               <Route exact path='/signIn' render={ () => currentUser ? <Redirect to='/' /> : <SingInAndSignUpPage /> } />
               <Route exact path='/checkout' component={CheckoutPage} />
             </Switch>

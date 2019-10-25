@@ -1,5 +1,5 @@
 import { addCartItems } from '../utils';
-import { CART_TOGGLE_HIDDEN, ADD_CART_ITEMS } from '../types';
+import { CART_TOGGLE_HIDDEN, ADD_CART_ITEMS, CLEAR_CART_ITEM } from '../types';
 
 const Initial_State = {
     hidden : true,
@@ -18,6 +18,13 @@ const Cart = (state = Initial_State, action) => {
             return{
                 ...state,
                 cartItems: addCartItems(state.cartItems , action.payload)
+            }
+        case CLEAR_CART_ITEM:
+            return{
+                ...state,
+                cartItems: state.cartItems.filter( cartItem => 
+                        cartItem.id !== action.payload.id
+                    )
             }
         default:
             return state;
