@@ -2,19 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CollectionOverview from '../../components/collectionOverview/collectionOverview.component';
 
-import './catProductlist.styles.sccs';
+import './catProductlist.styles.scss';
 
 
 const CatProductList = ({ products, match }) => {
-    console.log(match);
     return(
         <div className='collection-page'>
-        <h2 className='title'>sss</h2>
-        <div className='items'>
             { products.map((products) => (
-                <CollectionOverview key={products.id} items={products.items} />
+                 products.routeName === match.params.catname ? <CollectionOverview key={products.id} items={products.items} /> : '' 
             ))}
-        </div>
         </div>
     )
 }

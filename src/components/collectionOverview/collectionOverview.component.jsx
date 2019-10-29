@@ -8,13 +8,15 @@ import './collectionOverview.styles.scss';
 const CollectionOverview = ({ title, items }) => {
     
     return(
-        <div className='collections-overview'>
+        <div>
+        <h2 className='title'>{title}</h2>
+        <div className='items'>
         {
             items.map(item => (
                 <ProductList key={item.id} item={item} />
             ))
         }
-        </div>
+        </div></div>
     )
 }
 

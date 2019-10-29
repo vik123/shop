@@ -3,7 +3,7 @@ import './home.styles.scss';
 
 import ProductMenu from '../../components/menu-collection/collection.component';
 
-const HomePage = ({match}) => {
+const HomePage = () => {
   return(
     <div className='homepage'>
       <h1>Welcome to my Homepage</h1>
